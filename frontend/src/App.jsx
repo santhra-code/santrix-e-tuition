@@ -3,6 +3,9 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext'
 import { useAuth } from './hooks/useAuth'
 import { ModernHome } from './pages/ModernHome'
+import { CoursesPage } from './pages/CoursesPage'
+import { AboutPage } from './pages/AboutPage'
+import { TeacherPage } from './pages/TeacherPage'
 import { Login } from './pages/auth/Login'
 import { Signup } from './pages/auth/Signup'
 import { NotFound } from './pages/NotFound'
@@ -31,6 +34,9 @@ const AppContent = () => {
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<ModernHome />} />
+          <Route path="/courses" element={<CoursesPage />} />
+          <Route path="/teachers" element={<TeacherPage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="*" element={<NotFound />} />
