@@ -4,26 +4,26 @@ import { FiArrowRight } from 'react-icons/fi'
 
 const allCourses = [
   // Competitive Exams
-  { id: 1, name: 'JEE Main & Advanced', category: 'competitive', level: 'Advanced', students: '2000+', color: 'from-blue-400 to-blue-600' },
-  { id: 2, name: 'NEET', category: 'competitive', level: 'Advanced', students: '1800+', color: 'from-green-400 to-green-600' },
-  { id: 3, name: 'GATE', category: 'competitive', level: 'Advanced', students: '1200+', color: 'from-purple-400 to-purple-600' },
-  { id: 4, name: 'SSC', category: 'competitive', level: 'Intermediate', students: '950+', color: 'from-red-400 to-red-600' },
-  { id: 5, name: 'IBPS', category: 'competitive', level: 'Intermediate', students: '800+', color: 'from-yellow-400 to-yellow-600' },
-  { id: 6, name: 'TNPSC', category: 'competitive', level: 'Intermediate', students: '650+', color: 'from-pink-400 to-pink-600' },
-  { id: 7, name: 'UGC-NET', category: 'competitive', level: 'Advanced', students: '500+', color: 'from-indigo-400 to-indigo-600' },
+  { id: 1, name: 'JEE Main & Advanced', category: 'competitive', level: 'Advanced', courses: ['JEE Main', 'JEE Advanced', 'Physics', 'Chemistry', 'Mathematics'] },
+  { id: 2, name: 'NEET', category: 'competitive', level: 'Advanced', courses: ['Biology', 'Physics', 'Chemistry', 'Organic Chemistry', 'Anatomy'] },
+  { id: 3, name: 'GATE', category: 'competitive', level: 'Advanced', courses: ['Engineering Math', 'Core Subjects', 'Technical Drawing', 'Problem Solving'] },
+  { id: 4, name: 'SSC', category: 'competitive', level: 'Intermediate', courses: ['English', 'General Knowledge', 'Quantitative', 'Reasoning'] },
+  { id: 5, name: 'IBPS', category: 'competitive', level: 'Intermediate', courses: ['Banking Basics', 'Quantitative', 'Reasoning', 'General Awareness'] },
+  { id: 6, name: 'TNPSC', category: 'competitive', level: 'Intermediate', courses: ['Tamil', 'History', 'Geography', 'Polity'] },
+  { id: 7, name: 'UGC-NET', category: 'competitive', level: 'Advanced', courses: ['Research Methods', 'Subject Expertise', 'Teaching Aptitude'] },
   
   // School Boards
-  { id: 8, name: 'LKG to 3rd Grade', category: 'school', level: 'Beginner', students: '1500+', color: 'from-rose-400 to-rose-600' },
-  { id: 9, name: '4th to 6th Grade', category: 'school', level: 'Beginner', students: '1800+', color: 'from-cyan-400 to-cyan-600' },
-  { id: 10, name: '7th to 9th Grade', category: 'school', level: 'Intermediate', students: '2200+', color: 'from-teal-400 to-teal-600' },
-  { id: 11, name: '+1 (11th Grade)', category: 'school', level: 'Intermediate', students: '1600+', color: 'from-lime-400 to-lime-600' },
-  { id: 12, name: '+2 (12th Grade)', category: 'school', level: 'Advanced', students: '1900+', color: 'from-amber-400 to-amber-600' },
+  { id: 8, name: 'LKG to 3rd Grade', category: 'school', level: 'Beginner', courses: ['Math Basics', 'English', 'EVS', 'Life Skills'] },
+  { id: 9, name: '4th to 6th Grade', category: 'school', level: 'Beginner', courses: ['Mathematics', 'English', 'Science', 'Social Studies'] },
+  { id: 10, name: '7th to 9th Grade', category: 'school', level: 'Intermediate', courses: ['Math', 'Science', 'English', 'History', 'Geography'] },
+  { id: 11, name: '+1 (11th Grade)', category: 'school', level: 'Intermediate', courses: ['Physics', 'Chemistry', 'Biology/Maths', 'English'] },
+  { id: 12, name: '+2 (12th Grade)', category: 'school', level: 'Advanced', courses: ['Physics', 'Chemistry', 'Biology/Maths', 'English'] },
   
   // Programming
-  { id: 13, name: 'Java Programming', category: 'programming', level: 'Intermediate', students: '1100+', color: 'from-orange-400 to-orange-600' },
-  { id: 14, name: 'Python Programming', category: 'programming', level: 'Intermediate', students: '1400+', color: 'from-blue-500 to-cyan-500' },
-  { id: 15, name: 'C Programming', category: 'programming', level: 'Beginner', students: '950+', color: 'from-slate-400 to-slate-600' },
-  { id: 16, name: 'C++ Programming', category: 'programming', level: 'Intermediate', students: '1050+', color: 'from-violet-400 to-violet-600' },
+  { id: 13, name: 'Java Programming', category: 'programming', level: 'Intermediate', courses: ['OOP Concepts', 'Collections', 'Threads', 'Spring Framework'] },
+  { id: 14, name: 'Python Programming', category: 'programming', level: 'Intermediate', courses: ['Basics', 'Data Structures', 'Web Dev', 'Machine Learning'] },
+  { id: 15, name: 'C Programming', category: 'programming', level: 'Beginner', courses: ['Fundamentals', 'Pointers', 'Arrays', 'File Handling'] },
+  { id: 16, name: 'C++ Programming', category: 'programming', level: 'Intermediate', courses: ['OOP', 'STL', 'Templates', 'Advanced C++'] },
 ]
 
 const categories = [
@@ -33,8 +33,17 @@ const categories = [
   { id: 'programming', label: 'Programming', icon: '💻' },
 ]
 
+const courseColors = [
+  'bg-gradient-to-br from-primary to-primary-dark',
+  'bg-gradient-to-br from-primary-dark to-accent',
+  'bg-gradient-to-br from-accent to-primary',
+  'bg-gradient-to-br from-primary to-accent',
+  'bg-gradient-to-br from-primary-dark to-primary',
+]
+
 export const CoursesSection = () => {
   const [activeFilter, setActiveFilter] = useState('all')
+  const [expandedCourse, setExpandedCourse] = useState(null)
 
   const filteredCourses = activeFilter === 'all' 
     ? allCourses 
@@ -99,7 +108,7 @@ export const CoursesSection = () => {
               whileHover={{ y: -8 }}
               className="group"
             >
-              <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${course.color} p-6 text-white shadow-soft hover:shadow-soft-lg transition-all cursor-pointer h-full flex flex-col justify-between`}>
+              <div className={`relative overflow-hidden rounded-2xl ${courseColors[index % courseColors.length]} p-6 text-white shadow-soft hover:shadow-soft-lg transition-all cursor-pointer h-full flex flex-col justify-between`}>
                 {/* Background Decoration */}
                 <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-white/10 rounded-full"></div>
                 <div className="absolute -left-8 -top-8 w-24 h-24 bg-white/5 rounded-full"></div>
@@ -112,23 +121,34 @@ export const CoursesSection = () => {
                   </div>
 
                   {/* Course Name */}
-                  <h3 className="text-xl font-bold mb-2">{course.name}</h3>
+                  <h3 className="text-xl font-bold mb-4">{course.name}</h3>
 
-                  {/* Course Stats */}
-                  <div className="flex items-center justify-between text-white/80 text-sm">
-                    <span>👥 {course.students} enrolled</span>
-                  </div>
+                  {/* Course List */}
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={expandedCourse === course.id ? { opacity: 1, height: 'auto' } : { opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="mb-4"
+                  >
+                    <ul className="space-y-2 text-sm text-white/90">
+                      {course.courses.map((item, idx) => (
+                        <li key={idx} className="flex items-center gap-2">
+                          <span className="text-accent">✓</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
                 </div>
 
-                {/* Hover CTA */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileHover={{ opacity: 1, y: 0 }}
-                  className="relative z-10 mt-4 pt-4 border-t border-white/20 flex items-center gap-2 text-white font-semibold group-hover:translate-x-2 transition-transform"
+                {/* Expand/Collapse Button */}
+                <motion.button
+                  onClick={() => setExpandedCourse(expandedCourse === course.id ? null : course.id)}
+                  className="relative z-10 mt-4 pt-4 border-t border-white/20 flex items-center gap-2 text-white font-semibold hover:translate-x-2 transition-transform w-full"
                 >
-                  Explore
+                  {expandedCourse === course.id ? 'View Less' : 'View Courses'}
                   <FiArrowRight size={18} />
-                </motion.div>
+                </motion.button>
               </div>
             </motion.div>
           ))}
