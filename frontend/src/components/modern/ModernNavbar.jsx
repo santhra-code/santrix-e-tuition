@@ -40,8 +40,8 @@ export const ModernNavbar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             <Link to="/" className="text-gray-600 hover:text-primary-dark transition-colors font-medium">Courses</Link>
-            <Link to="/" className="text-gray-600 hover:text-primary-dark transition-colors font-medium">Teachers</Link>
-            <Link to="/" className="text-gray-600 hover:text-primary-dark transition-colors font-medium">About</Link>
+            <Link to="/" className="text-gray-600 hover:text-primary-dark transition-colors font-medium">Teacher</Link>
+            <Link to="/about" className="text-gray-600 hover:text-primary-dark transition-colors font-medium">About</Link>
           </div>
 
           {/* Auth Buttons */}
@@ -97,8 +97,8 @@ export const ModernNavbar = () => {
         {isOpen && (
           <div className="md:hidden pb-4 space-y-2 animate-slide-up">
             <Link to="/" className="block px-4 py-2 hover:bg-primary/10 rounded-lg text-gray-600 font-medium">Courses</Link>
-            <Link to="/" className="block px-4 py-2 hover:bg-primary/10 rounded-lg text-gray-600 font-medium">Teachers</Link>
-            <Link to="/" className="block px-4 py-2 hover:bg-primary/10 rounded-lg text-gray-600 font-medium">About</Link>
+            <Link to="/" className="block px-4 py-2 hover:bg-primary/10 rounded-lg text-gray-600 font-medium">Teacher</Link>
+            <Link to="/about" className="block px-4 py-2 hover:bg-primary/10 rounded-lg text-gray-600 font-medium">About</Link>
             {!isAuthenticated ? (
               <>
                 <Link to="/login" className="block px-4 py-2 hover:bg-primary/10 rounded-lg text-gray-600 font-medium">Login</Link>
