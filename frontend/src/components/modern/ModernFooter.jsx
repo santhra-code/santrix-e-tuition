@@ -50,8 +50,8 @@ export const ModernFooter = () => {
             <h3 className="font-bold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-3 text-gray-400">
               <li><Link to="/" className="hover:text-accent transition-colors">Home</Link></li>
-              <li><Link to="/" className="hover:text-accent transition-colors">Courses</Link></li>
-              <li><Link to="/" className="hover:text-accent transition-colors">Teachers</Link></li>
+              <li><Link to="/courses" className="hover:text-accent transition-colors">Courses</Link></li>
+              <li><Link to="/teachers" className="hover:text-accent transition-colors">Teachers</Link></li>
               <li><Link to="/" className="hover:text-accent transition-colors">Pricing</Link></li>
             </ul>
           </motion.div>
@@ -65,7 +65,7 @@ export const ModernFooter = () => {
           >
             <h3 className="font-bold text-lg mb-4">Company</h3>
             <ul className="space-y-3 text-gray-400">
-              <li><a href="#" className="hover:text-accent transition-colors">About Us</a></li>
+              <li><Link to="/about" className="hover:text-accent transition-colors">About Us</Link></li>
               <li><a href="#" className="hover:text-accent transition-colors">Blog</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Careers</a></li>
               <li><a href="#" className="hover:text-accent transition-colors">Press</a></li>
